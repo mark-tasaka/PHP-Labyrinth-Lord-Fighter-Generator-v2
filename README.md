@@ -5,6 +5,12 @@ The Labyrinth Lord Fighter Character Generator Version 2 is the second iteration
 ----------
 
 
+
+Update 1.01: 2022-06-25
+
+Updates to fighter.php, fighter.css, classDetails.php, and weapons.php.
+
+
 Initial commit: 2022-06-24
 
 The initial commit for the Labyrinth Lord Fighter Character Generator Version 2.
