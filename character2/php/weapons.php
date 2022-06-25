@@ -1,48 +1,128 @@
 <?php
 
-
     function getWeapon($input)
     {
-        $a00 = array("Battleaxe [Tetsubo]", "1d10");
-        $a01 = array("Blackjack", "1d3/2d6");
-        $a02 = array("Blowgun [Fukiya]", "1d3/1d5");
-        $a03 = array("Club", "1d4");
-        $a04 = array("Crossbow [Shudo]", "1d6");
-        $a05 = array("Dagger [Tanto]", "1d4/1d10");
-        $a06 = array("Dart [Shuriken]", "1d4");
-        $a07 = array("Flail [Chigiriki]", "1d6");
-        $a08 = array("Garrote", "1/3d4");
-        $a09 = array("Handaxe [Ono]", "1d6");
-        $a10 = array("Javelin", "1d6");
-        $a11 = array("Lance", "1d12");
-        $a12 = array("Longbow [Daikyu]", "1d6");
-        $a13 = array("Longsword [Katana]", "1d8");
-        $a14 = array("Mace", "1d6");
-        $a15 = array("Polearm [Naganata]", "1d10");
-        $a16 = array("Shortbow [Hankyu]", "1d6");
-        $a17 = array("Short sword [Wakizashi]", "1d6");
-        $a18 = array("Sling", "1d4");
-        $a19 = array("Spear [Yari]", "1d8");
-        $a20 = array("Staff [bo/jo]", "1d4");
-        $a21 = array("Two-handed sword [No-dachi]", "1d10");
-        $a22 = array("Warhammer [Otsuchi]", "1d8");
-        $a23 = array("Nunchaku", "2d4");
-        $a24 = array("Jutte", "1d2x2");
-        $a25 = array("Tonfa", "1d4x2");
-        $a26 = array("Sai", "1d2x2");
-        $a27 = array("Kama", "1d4x2");
+        $a00 = array("Axe, battle+", "1d8", 6);
+        $a01 = array("Axe, hand", "1d6", 3);
+        $a02 = array("Club", "1d4", 3);
+        $a03 = array("Crossbow, heavy (quarrels x10)", "1d8", 9);
+        $a04 = array("Crossbow, light (quarrels x10)", "1d6", 5);
+        $a05 = array("Dagger", "1d4", 1);
+        $a06 = array("Daggers x 2", "1d4", 2);
+        $a07 = array("Daggers x 3", "1d4", 3);
+        $a08 = array("Dagger, silver", "1d4", 1);
+        $a09 = array("Darts x 2", "1d4", 1);
+        $a10 = array("Darts x 4", "1d4", 2);
+        $a11 = array("Darts x 6", "1d4", 3);
+        $a12 = array("Flail", "1d6", 5);
+        $a13 = array("Flail, heavy+", "1d8", 10);
+        $a14 = array("Hammer, light", "1d4", 2);
+        $a15 = array("Hammer, war+", "1d6", 5);
+        $a16 = array("Javelin", "1d6", 2);
+        $a17 = array("Javelins x 2", "1d6", 4);
+        $a18 = array("Lance", "1d6", 10);
+        $a19 = array("Longbow (arrows x 20)", "1d8", 6);
+        $a20 = array("Mace", "1d6", 3);
+        $a21 = array("Morningstar+", "1d6", 6);
+        $a22 = array("Pick, heavy+", "1d8", 6);
+        $a23 = array("Pick, light", "1d6", 3);
+        $a24 = array("Pole Arm+", "1d10", 15);
+        $a25 = array("Quarterstaff+", "1d6", 4);
+        $a26 = array("Scimitar", "1d8", 4);
+        $a27 = array("Shortbow (arrows x 20)", "1d6", 5);
+        $a28 = array("Sling (bullets x 10)", "1d4", 5);
+        $a29 = array("Spear", "1d6", 6);
+        $a30 = array("Sword, long", "1d8", 4);
+        $a31 = array("Sword, bastard^", "1d8/2d4", 6);
+        $a32 = array("Sword, short", "1d6", 2);
+        $a33 = array("Sword, two-handed+", "1d10", 15);
+        $a34 = array("Trident+", "1d6", 4);
 
 
-        $array1= array($a00, $a01, $a02, $a03, $a04, $a05, $a06, $a07, $a08, $a09, $a10, $a11, $a12, $a13, $a14, $a15, $a16, $a17, $a18, $a19, $a20, $a21, $a22, $a23, $a24, $a25, $a26, $a27);
+        $array1= array($a00, $a01, $a02, $a03, $a04, $a05, $a06, $a07, $a08, $a09, $a10, $a11, $a12, $a13, $a14, $a15, $a16, $a17, $a18, $a19, $a20, $a21, $a22, $a23, $a24, $a25, $a26, $a27, $a28, $a29, $a30, $a31, $a32, $a33, $a34);
         
         return $array1[$input];
         
     }
 
+function isWeaponTwoHanded($input, $value)
+{
+    if($input === "Axe, battle+")
+    {
+        $value += 1;
+    }
+    else if($input === "Flail, heavy+")
+    {
+        $value += 1;
+    }
+    else if($input === "Hammer, war+")
+    {
+        $value += 1;
+    }
+    else if($input === "Morningstar+")
+    {
+        $value += 1;
+    }
+    else if($input === "Pick, heavy+")
+    {
+        $value += 1;
+    }
+    else if($input === "Pole Arm+")
+    {
+        $value += 1;
+    }
+    else if($input === "Quarterstaff+")
+    {
+        $value += 1;
+    }
+    else if($input === "Sword, two-handed+")
+    {
+        $value += 1;
+    }
+    else if($input === "Trident+")
+    {
+        $value += 1;
+    }
+    
+    return $value;
+    
+}
+
+function isWeaponBastardSword($input, $value)
+{
+    if($input === "Sword, bastard^")
+    {
+        $value = 100;
+    }
+    return $value;
+}
+
+function weaponNotes($value)
+{
+    $comments = "";
+    
+    if($value >= 1 && $value <= 20)
+    {
+        $comments = "+ Two-handed weapon";
+    }
+    else if($value === 100)
+    {
+        $comments = "^ Can be used one-handed or two-handed";
+    }
+    else if($value > 100)
+    {
+        $comments = "+ Two-handed weapon<br/>^ Can be used one-handed or two-handed";
+    }
+    
+    return $comments;
+    
+}
+
+
     function getRandomWeapons()
     {
        
-        $weaponsArray = array(5, 6, 10, 12, 13, 16, 17, 18, 19, 20);
+        $weaponsArray = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34);
     
         //shuffle $weaponsArray
         shuffle($weaponsArray); 

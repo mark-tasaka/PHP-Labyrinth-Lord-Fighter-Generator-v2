@@ -1,32 +1,49 @@
 <?php
 
-/*Warrior */
+/*Fighter */
 
-function getHitPoints($level, $staminaMod)
+function getHitPoints($level, $conMod)
 {
-    $baseHP = rand(1, 4);
-    $baseHP += $staminaMod;
-    
-    if($baseHP < 1)
+    $hitPoints = 0;
+
+    if($level < 10)
     {
-        $baseHP = 1;
-    }
-
-    $hitPoints = $baseHP;
-
-    for($i = 0; $i < $level; ++$i)
-    {
-        $levelHP = rand(5, 12);
-        $levelHP += $staminaMod;
-
-        if($levelHP < 3)
+        for($i = 0; $i < $level; ++$i)
         {
-            $levelHP = 3;
+            $levelHP = rand(3, 8);
+            $levelHP += $conMod;
+    
+            if($levelHP < 3)
+            {
+                $levelHP = 3;
+            }
+    
+            $hitPoints += $levelHP;
+    
+        }
+    }
+    else
+    {
+        for($i = 0; $i < $level; ++$i)
+        {
+            $levelHP = rand(3, 8);
+            $levelHP += $conMod;
+    
+            if($levelHP < 3)
+            {
+                $levelHP = 3;
+            }
+    
+            $hitPoints += $levelHP;
+    
         }
 
-        $hitPoints += $levelHP ;
+        $levelTenPlusHP = ($level - 9) * 2;
+
+        $hitPoints += $levelTenPlusHP;
 
     }
+
 
     return $hitPoints;
 

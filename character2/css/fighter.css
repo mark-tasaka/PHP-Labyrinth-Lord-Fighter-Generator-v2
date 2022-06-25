@@ -205,10 +205,9 @@ body{
 
 #abilityScoreGeneration{
     position:absolute;
-    top: 1145px;
-    left: 410px;
+    top: 1160px;
+    left: 35px;
     font-size: 0.5em;
-    width: 240px;
 }
 
 
@@ -266,14 +265,14 @@ body{
 }
 
 
-#agility{
+#dexterity{
     position:absolute;
     top: 358px;
     left: 510px;
 	font-size: 1.5em;
 }
 
-#agilityMod{
+#dexterityMod{
     position:absolute;
     top: 358px;
     left: 580px;
@@ -282,31 +281,16 @@ body{
 
 
 
-#stamina{
+#constitution{
     position:absolute;
     top: 407px;
     left: 510px;
 	font-size: 1.5em;
 }
 
-#staminaMod{
+#constitutionMod{
     position:absolute;
     top: 407px;
-    left: 580px;
-	font-size: 1.5em;
-}
-
-
-#personality{
-    position:absolute;
-    top: 455px;
-    left: 510px;
-	font-size: 1.5em;
-}
-
-#personalityMod{
-    position:absolute;
-    top: 455px;
     left: 580px;
 	font-size: 1.5em;
 }
@@ -314,19 +298,34 @@ body{
 
 #intelligence{
     position:absolute;
-    top: 502px;
+    top: 455px;
     left: 510px;
 	font-size: 1.5em;
 }
 
 #intelligenceMod{
     position:absolute;
+    top: 455px;
+    left: 580px;
+	font-size: 1.5em;
+}
+
+
+#wisdom{
+    position:absolute;
+    top: 502px;
+    left: 510px;
+	font-size: 1.5em;
+}
+
+#wisdomMod{
+    position:absolute;
     top: 502px;
     left: 580px;
 	font-size: 1.5em;
 }
 
-#luck{
+#charisma{
     position:absolute;
     top: 550px;
     left: 510px;
@@ -334,7 +333,7 @@ body{
 }
 
 
-#luckMod{
+#charismaMod{
     position:absolute;
     top: 550px;
     left: 580px;

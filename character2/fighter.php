@@ -32,18 +32,12 @@
     include 'php/abilityScoreGen.php';
     include 'php/xp.php';
     include 'php/diceRoll.php';
-   // include 'php/luckySign.php';
     include 'php/wealth.php';
     include 'php/nameSelect.php';
     include 'php/gender.php';
     include 'php/languages.php';
     
-    
-            
-        if(isset($_POST["theGender"]))
-        {
-            $gender = $_POST["theGender"];
-        }
+
 
         if(isset($_POST["theCharacterName"]))
         {
@@ -51,29 +45,57 @@
     
         }
 
-        
-        if(isset($_POST['theRandomNameGen']) && $_POST['theRandomNameGen'] == 1) 
+        if(isset($_POST["theGivenName"]))
         {
-            $characterName = '';
+            $givenName = $_POST["theGivenName"];
 
-            $givenName = '24';
-            $surname = '19';
-            
-            $genderName = getGenderName($gender);
-            $genderNameIdentifier = genderNameGeneration ($gender);
+        }
 
-            $fullName = getName($givenName, $surname, $genderNameIdentifier);
-            
+        if($givenName == '100')
+        {
+            $givenName = rand(0, 49);
         }
         else
         {
-            $givenName = '';
-            $surname = '';
-            $genderName = getGenderName($gender);
-            $fullName = '';
+            $givenName = $givenName;
+        }
+        
+
+
+        if(isset($_POST["theSurname"]))
+        {
+            $surname = $_POST["theSurname"];
+
+        }
+
+        if($surname == '100')
+        {
+            $surname = rand(0, 37);
+        }
+        else
+        {
+            $surname = $surname;
+        }
+
+
+        if(isset($_POST['theCheckBoxCustomName']) && $_POST['theCheckBoxCustomName'] == 1) 
+        {
+            $givenName = 200;
+            $surname = 200;
+            
         } 
-
-
+    
+            
+        if(isset($_POST["theGender"]))
+        {
+            $gender = $_POST["theGender"];
+        }
+        
+        $genderName = getGenderName($gender);
+        $genderNameIdentifier = genderNameGeneration ($gender);
+        
+        $fullName = getName($givenName, $surname, $genderNameIdentifier);
+        
         
 
 
@@ -96,16 +118,6 @@
     
         }
 
-        if(isset($_POST['theEasternTitle']) && $_POST['theEasternTitle'] == 1) 
-        {
-            $title = titleEastern($level, $gender);
-        }
-        else
-        {
-            $title = title($level, $alignment);
-        } 
-
-        
 
         
         $xpNextLevel = getXPNextLevel ($level);
@@ -135,23 +147,17 @@
                 $strength = intval($strengthString);
             }      
 
-            if(isset($_POST["theAgility"]))
+            if(isset($_POST["theDexterity"]))
             {
-                $agilityString = $_POST["theAgility"];
-                $agility = intval($agilityString);
+                $dexterityString = $_POST["theDexterity"];
+                $dexterity = intval($dexterityString);
             }     
 
-            if(isset($_POST["theStamina"]))
+            if(isset($_POST["theConstitution"]))
             {
-                $staminaString = $_POST["theStamina"];
-                $stamina = intval($staminaString);
+                $constitutionString = $_POST["theConstitution"];
+                $constitution = intval($constitutionString);
             }       
-
-            if(isset($_POST["thePersonality"]))
-            {
-                $personalityString = $_POST["thePersonality"];
-                $personality = intval($personalityString);
-            }  
 
             if(isset($_POST["theIntelligence"]))
             {
@@ -159,12 +165,19 @@
                 $intelligence = intval($intelligenceString);
             }  
 
-            if(isset($_POST["theLuck"]))
+            if(isset($_POST["theWisdom"]))
             {
-                $luckString = $_POST["theLuck"];
-                $luck = intval($luckString);
+                $wisdomString = $_POST["theWisdom"];
+                $wisdom = intval($wisdomString);
             }  
 
+            if(isset($_POST["theCharisma"]))
+            {
+                $charismaString = $_POST["theCharisma"];
+                $charisma = intval($charismaString);
+            }  
+
+            $nameGenMessage = "Custom Name";
             $generationMessage = "Custom Ability Scores";
 
         }
@@ -187,61 +200,27 @@
             }       
     
             $strength = $abilityScoreArray[0];
-            $agility = $abilityScoreArray[1];
-            $stamina = $abilityScoreArray[2];
-            $personality = $abilityScoreArray[3];
-            $intelligence = $abilityScoreArray[4];
-            $luck = $abilityScoreArray[5];
+            $dexterity = $abilityScoreArray[1];
+            $constitution = $abilityScoreArray[2];
+            $intelligence = $abilityScoreArray[3];
+            $wisdom = $abilityScoreArray[4];
+            $charisma = $abilityScoreArray[5];
             
+            
+            $nameGenMessage = getNameDescript($givenName, $surname);
             $generationMessage = generationMesssage ($abilityScoreGen);
 
         } 
 
         
         $strengthMod = getAbilityModifier($strength);
-        $agilityMod = getAbilityModifier($agility);
-        $staminaMod = getAbilityModifier($stamina);
-        $personalityMod = getAbilityModifier($personality);
+        $dexterityMod = getAbilityModifier($dexterity);
+        $constitutionMod = getAbilityModifier($constitution);
         $intelligenceMod = getAbilityModifier($intelligence);
-        $luckMod = getAbilityModifier($luck);
+        $wisdomMod = getAbilityModifier($wisdom);
+        $charismaMod = getAbilityModifier($charisma);
 
 
-/*
-        if(isset($_POST["theAbilityScore"]))
-        {
-            $abilityScoreGen = $_POST["theAbilityScore"];
-        
-        }
-        
-        
-        $abilityScoreArray = array();
-        
-        for($i = 0; $i < 6; ++$i)
-        {
-            $abilityScore = rollAbilityScores ($abilityScoreGen);
-
-            array_push($abilityScoreArray, $abilityScore);
-
-        }       
-
-        $strength = $abilityScoreArray[0];
-        $agility = $abilityScoreArray[1];
-        $stamina = $abilityScoreArray[2];
-        $personality = $abilityScoreArray[3];
-        $intelligence = $abilityScoreArray[4];
-        $luck = $abilityScoreArray[5];
-        
-        $strengthMod = getAbilityModifier($strength);
-        $agilityMod = getAbilityModifier($agility);
-        $staminaMod = getAbilityModifier($stamina);
-        $personalityMod = getAbilityModifier($personality);
-        $intelligenceMod = getAbilityModifier($intelligence);
-        $luckMod = getAbilityModifier($luck);
-
-
-        $generationMessage = generationMesssage ($abilityScoreGen);
-    */
-    
         if(isset($_POST["theArmour"]))
         {
             $armour = $_POST["theArmour"];
@@ -267,24 +246,21 @@
 
        $actionDice = actionDice($level);
 
-       $baseArmourClass = 10 - $agilityMod;
+       $baseArmourClass = 10 - $dexterityMod;
 
        $armourClass = $baseArmourClass + $totalAcDefense;
 
 
        //Hit Points
-       $hitPoints = getHitPoints($level, $staminaMod);
+       $hitPoints = getHitPoints($level, $constitutionMod);
 
-
-
-     //  $languages = array();
-
-      // $languages = getLanguages($intelligenceMod, $luckMod, $luckySign[0], $alignment, $intelligence);
 
 
         $weaponArray = array();
         $weaponNames = array();
         $weaponDamage = array();
+        $weaponWeight = array();
+    
     
     //For Random Select weapon
     if(isset($_POST['thecheckBoxRandomWeaponsV3']) && $_POST['thecheckBoxRandomWeaponsV3'] == 1) 
@@ -314,6 +290,15 @@
     {
         array_push($weaponDamage, getWeapon($select)[1]);
     }
+        
+    $totalWeaponWeight = 0;
+    
+    foreach($weaponArray as $select)
+    {
+        array_push($weaponWeight, getWeapon($select)[2]);
+        $totalWeaponWeight += getWeapon($select)[2];
+    }
+    
         
         $gearArray = array();
         $gearNames = array();
@@ -387,46 +372,33 @@
             ?>
         </span>
 
-		<span id="agility">
+		<span id="dexterity">
         <?php
-            echo $agility;
+            echo $dexterity;
             ?>
         </span>
 
-          <span id="agilityMod">
+          <span id="dexterityMod">
         <?php
-            $agilityMod = getModSign($agilityMod);
-            echo $agilityMod;
+            $dexterityMod = getModSign($dexterityMod);
+            echo $dexterityMod;
             ?>
         </span>
 
            
-		<span id="stamina">
+		<span id="constitution">
         <?php
-            echo $stamina;
+            echo $constitution;
             ?>
         </span>
 
-          <span id="staminaMod">
+          <span id="constitutionMod">
         <?php
-            $staminaMod = getModSign($staminaMod);
-            echo $staminaMod;
+            $constitutionMod = getModSign($constitutionMod);
+            echo $constitutionMod;
             ?>
         </span>
-
-		<span id="personality">
-        <?php
-            echo $personality;
-            ?>
-        </span>
-
-         <span id="personalityMod">
-        <?php
-            $personalityMod = getModSign($personalityMod);
-            echo $personalityMod;
-            ?>
-        </span>
-
+        
 		<span id="intelligence">
         <?php
             echo $intelligence;
@@ -440,16 +412,30 @@
             ?>
         </span>
 
-		<span id="luck">
+		<span id="wisdom">
         <?php
-            echo $luck;
+            echo $wisdom;
             ?>
         </span>
 
-         <span id="luckMod">
+         <span id="wisdomMod">
         <?php
-            $luckMod = getModSign($luckMod);
-            echo $luckMod;
+            $wisdomMod = getModSign($wisdomMod);
+            echo $wisdomMod;
+            ?>
+        </span>
+
+
+		<span id="charisma">
+        <?php
+            echo $charisma;
+            ?>
+        </span>
+
+         <span id="charismaMod">
+        <?php
+            $charismaMod = getModSign($charismaMod);
+            echo $charismaMod;
             ?>
         </span>
 
@@ -604,28 +590,34 @@
             ?>
         </span>
 
-        
-        <span id="title">
-            <?php
-                echo $title;
-            ?>
-        </span>
-
-        
-  
        
-       <span id="weaponsList">
+        <span id="weaponsList">
            <?php
+           $val1 = 0;
+           $val2 = 0;
+           $val3 = 0;
            
            foreach($weaponNames as $theWeapon)
            {
                echo $theWeapon;
                echo "<br/>";
+               $val1 = isWeaponTwoHanded($theWeapon, $val1);
+               $val2 = isWeaponBastardSword($theWeapon, $val2);
            }
+           
+           $val3 = $val1 + $val2;
+           
+           $weaponNotes = weaponNotes($val3);
            
            ?>  
         </span>
-
+       
+       <span id="weaponNotes">
+           <?php
+                echo $weaponNotes;
+           ?>
+        </span>
+            
        <span id="weaponsList2">
            <?php
            foreach($weaponDamage as $theWeaponDam)
@@ -635,6 +627,25 @@
            }
            ?>        
         </span>
+       
+
+            
+       <span id="weaponsList3">
+           <?php
+           foreach($weaponWeight as $theWeapon)
+           {
+               echo $theWeapon;
+               echo "<br/>";
+           }
+           ?>        
+        </span>
+       
+       <span id="totalWeaponWeight">
+           <?php
+           echo $totalWeaponWeight;
+           ?>
+       </span>
+
        
 
        <span id="gearList">
@@ -668,7 +679,7 @@
 
        <span id="abilityScoreGeneration">
             <?php
-           echo $generationMessage;
+           echo $generationMessage . '; ' . $nameGenMessage;
            ?>
        </span>
 
