@@ -38,23 +38,23 @@ body{
 #gender{
     position:absolute;
     top: 105px;
-    left: 292px;
+    left: 330px;
 	font-size: 0.85em;
 }
 
 
 #alignment{
     position:absolute;
-    top: 105px;
-    left: 367px;
+    top: 180px;
+    left: 55px;
 	font-size: 0.85em;
 }
 
 
 #level{
     position:absolute;
-    top: 163px;
-    left: 55px;
+    top: 105px;
+    left: 445px;
 	font-size: 0.85em;
 }
 
@@ -62,42 +62,42 @@ body{
 
 #class{
     position:absolute;
-    top: 163px;
-    left: 105px;
-	font-size: 0.85em;
-}
-
-
-#title{
-    position:absolute;
-    top: 163px;
-    left: 275px;
-	font-size: 0.85em;
-}
-
-
-#profession{
-    position:absolute;
-    top: 163px;
-    left: 415px;
+    top: 105px;
+    left: 500px;
 	font-size: 0.85em;
 }
 
 
 #playerName{
     position:absolute;
-    top: 105px;
-    left: 468px;
+    top: 180px;
+    left: 195px;
 	font-size: 0.85em;
 }
 
 
 #armourName{
     position:absolute;
-    top: 920px;
-    left: 40px;
-    font-size: 0.8em;
-    width: 200px;
+    top: 826px;
+    left: 665px;
+	font-size: 0.65em;
+}
+
+
+
+#armourACBonus{
+    position:absolute;
+    top: 826px;
+    left: 872px;
+	font-size: 0.65em;
+}
+
+
+#armourWeight{
+    position:absolute;
+    top: 826px;
+    left: 925px;
+	font-size: 0.65em;
 }
 
 #armourAc{
@@ -108,12 +108,6 @@ body{
 }
 
 
-#armourWeight{
-    position:absolute;
-    top: 800px;
-    left: 895px;
-	font-size: 0.8em;
-}
 
 #shieldName{
     position:absolute;
@@ -140,17 +134,44 @@ body{
 
 #weaponsList{
     position:absolute;
-    top: 1015px;
-    left: 40px;
-	font-size: 0.65em;
+    top: 910px;
+    left: 665px;
+	font-size: 0.55em;
 }
 
 #weaponsList2{
     position:absolute;
-    top: 1015px;
-    left: 290px;
-	font-size: 0.65em;
+    top: 910px;
+    left: 867px;
+	font-size: 0.55em;
 }
+
+
+#weaponsList3{
+    position:absolute;
+    top: 910px;
+    left: 930px;
+	font-size: 0.55em;
+}
+
+
+
+#weaponNotes{
+    position:absolute;
+    top: 1150px;
+    left: 665px;
+	font-size: 0.5em;
+}
+
+
+
+#totalWeaponWeight{
+    position:absolute;
+    top: 1170px;
+    left: 930px;
+	font-size: 0.55em;
+}
+
 
 
 
@@ -174,16 +195,6 @@ body{
     left: 485px;
 	font-size: 0.5em;
 }
-
-
-
-#weaponNotes{
-    position:absolute;
-    top: 1143px;
-    left: 580px;
-	font-size: 0.4em;
-}
-
 
 #gearList{
     position:absolute;
@@ -251,9 +262,9 @@ body{
 
 #strength{
     position:absolute;
-    top: 310px;
-    left: 510px;
-	font-size: 1.5em;
+    top: 510px;
+    left: 60px;
+	font-size: 1.3em;
 }
 
 
@@ -267,9 +278,9 @@ body{
 
 #dexterity{
     position:absolute;
-    top: 358px;
-    left: 510px;
-	font-size: 1.5em;
+    top: 555px;
+    left: 60px;
+	font-size: 1.3em;
 }
 
 #dexterityMod{
@@ -283,9 +294,9 @@ body{
 
 #constitution{
     position:absolute;
-    top: 407px;
-    left: 510px;
-	font-size: 1.5em;
+    top: 602px;
+    left: 60px;
+	font-size: 1.3em;
 }
 
 #constitutionMod{
@@ -298,9 +309,9 @@ body{
 
 #intelligence{
     position:absolute;
-    top: 455px;
-    left: 510px;
-	font-size: 1.5em;
+    top: 648px;
+    left: 60px;
+	font-size: 1.3em;
 }
 
 #intelligenceMod{
@@ -313,9 +324,9 @@ body{
 
 #wisdom{
     position:absolute;
-    top: 502px;
-    left: 510px;
-	font-size: 1.5em;
+    top: 695px;
+    left: 60px;
+	font-size: 1.3em;
 }
 
 #wisdomMod{
@@ -327,9 +338,9 @@ body{
 
 #charisma{
     position:absolute;
-    top: 550px;
-    left: 510px;
-	font-size: 1.5em;
+    top: 740px;
+    left: 60px;
+	font-size: 1.3em;
 }
 
 
@@ -351,35 +362,28 @@ body{
 
 #xpNextLevel{
     position:absolute;
-    top: 580px;
-    left: 790px;
-	font-size: 0.9em;
+    top: 197px;
+    left: 583px;
+	font-size: 0.7em;
 }
 
 
 #armourClass{
     position:absolute;
-    top: 313px;
-    left: 100px;
+    top: 260px;
+    left: 150px;
 	font-size: 1.5em;
 }
 
 
 #armourClassBase{
     position:absolute;
-    top: 313px;
-    left: 140px;
+    top: 260px;
+    left: 190px;
 	font-size: 1.5em;
 }
 
 
-
-#armourACBonus{
-    position:absolute;
-    top: 890px;
-    left: 320px;
-	font-size: 0.9em;
-}
 
 #armourACCheckPen{
     position:absolute;
@@ -405,8 +409,8 @@ body{
 #hitPoints{
     position:absolute;
     top: 420px;
-    left: 150px;
-	font-size: 1.1em;
+    left: 220px;
+	font-size: 1.5em;
 }
 
 #reflex{

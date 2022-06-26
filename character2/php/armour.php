@@ -1,23 +1,37 @@
 <?php
 
-/*Warrior - Bushi*/
+/*Fighter*/
 
-    function getArmour($input)
-    {
-        $a00 = array("", 0, 0, 0, "d4");
-        $a01 = array("Kusari katabira", 2, -1, 0, "d6");
-        $a02 = array("Karuta tatami", 3, -2, 0, "d8");
-        $a03 = array("Okashi gusoku", 4, -4, 0, "d12");
-        $a04 = array("Kusari tatami", 5, -5, 5, "d12");
-        $a05 = array("O-yoroi", 7, -7, 10, "d16");
-        $a06 = array("O-yoroi (master crafted)", 8, -8, 10, "d16");
-
-        $array1= array($a00, $a01, $a02, $a03, $a04, $a05, $a06);
-        
-        return $array1[$input];
-        
-    }
+function getArmour($input)
+{
+    $a01 = array("", 0, 0);
+    $a02 = array("Banded mail", -5, 35);
+    $a03 = array("Chain mail", -4, 30);
+    $a04 = array("Leather", -1, 15);
+    $a05 = array("Padded", -1, 10);
+    $a06 = array("Plate mail", -6, 50);
+    $a07 = array("Scale mail", -3, 40);
+    $a08 = array("Splint mail", -5, 45);
+    $a09 = array("Studded Leather", -2, 20);
 
 
+    $array1= array($a01, $a02, $a03, $a04, $a05, $a06, $a07, $a08, $a09);
+    
+    return $array1[$input];
+    
+}
+
+
+function getShield($input)
+{
+    $a01 = array("", 0, 0);
+    $a02 = array("Shield", -1, 10);
+
+
+    $array1= array($a01, $a02);
+    
+    return $array1[$input];
+    
+}
 
 ?>

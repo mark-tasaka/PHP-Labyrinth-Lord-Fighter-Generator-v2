@@ -229,15 +229,11 @@
         $armourName = getArmour($armour)[0];
         
         $armourACBonus = getArmour($armour)[1];
-        $armourCheckPen = getArmour($armour)[2];
-        $armourSpeedPen = getArmour($armour)[3];
-        $armourFumbleDie = getArmour($armour)[4];
+        $armourWeight = getArmour($armour)[2];
 
        $totalAcDefense = $armourACBonus;
-       $totalAcCheckPen = $armourCheckPen;
-       $speedPenality = $armourSpeedPen;
 
-       $speed = 30 - $armourSpeedPen;
+       $speed = 30;
 
 
        $criticalDie = criticalDie($level);
@@ -246,7 +242,7 @@
 
        $actionDice = actionDice($level);
 
-       $baseArmourClass = 10 - $dexterityMod;
+       $baseArmourClass = 9 - $dexterityMod;
 
        $armourClass = $baseArmourClass + $totalAcDefense;
 
@@ -367,8 +363,6 @@
         
         <span id="strengthMod">
         <?php
-            $strengthMod = getModSign($strengthMod);
-            echo $strengthMod;
             ?>
         </span>
 
@@ -380,8 +374,6 @@
 
           <span id="dexterityMod">
         <?php
-            $dexterityMod = getModSign($dexterityMod);
-            echo $dexterityMod;
             ?>
         </span>
 
@@ -394,8 +386,6 @@
 
           <span id="constitutionMod">
         <?php
-            $constitutionMod = getModSign($constitutionMod);
-            echo $constitutionMod;
             ?>
         </span>
         
@@ -407,8 +397,6 @@
 
          <span id="intelligenceMod">
         <?php
-            $intelligenceMod = getModSign($intelligenceMod);
-            echo $intelligenceMod;
             ?>
         </span>
 
@@ -420,8 +408,6 @@
 
          <span id="wisdomMod">
         <?php
-            $wisdomMod = getModSign($wisdomMod);
-            echo $wisdomMod;
             ?>
         </span>
 
@@ -434,8 +420,6 @@
 
          <span id="charismaMod">
         <?php
-            $charismaMod = getModSign($charismaMod);
-            echo $charismaMod;
             ?>
         </span>
 
@@ -540,35 +524,17 @@
 
         <span id="armourACBonus">
             <?php
-                echo '+' . $totalAcDefense;
+                echo $totalAcDefense;
             ?>
         </span>
 
         
-        <span id="armourACCheckPen">
+        <span id="armourWeight">
             <?php
-                echo $totalAcCheckPen;
+                echo $armourWeight;
             ?>
         </span>
         
-        <span id="armourACSpeedPen">
-            <?php
-            if($speedPenality == 0)
-            {
-                echo "-";
-            }
-            else
-            {
-                echo "-" . $speedPenality;
-            }
-            ?>
-        </span>
-
-        <span id="fumbleDie">
-            <?php
-                echo $armourFumbleDie;
-            ?>
-        </span>
 
         <span id="criticalDieTable">
             <?php
