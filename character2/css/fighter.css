@@ -100,6 +100,31 @@ body{
 	font-size: 0.65em;
 }
 
+#shieldName{
+    position:absolute;
+    top: 846px;
+    left: 665px;
+	font-size: 0.65em;
+}
+
+
+
+#shieldACBonus{
+    position:absolute;
+    top: 846px;
+    left: 872px;
+	font-size: 0.65em;
+}
+
+
+#shieldWeight{
+    position:absolute;
+    top: 846px;
+    left: 925px;
+	font-size: 0.65em;
+}
+
+
 #armourAc{
     position:absolute;
     top: 800px;
@@ -109,41 +134,19 @@ body{
 
 
 
-#shieldName{
-    position:absolute;
-    top: 620px;
-    left: 804px;
-	font-size: 1.3em;
-}
-
-#shieldAc{
-    position:absolute;
-    top: 820px;
-    left: 850px;
-	font-size: 0.8em;
-}
-
-
-#shieldWeight{
-    position:absolute;
-    top: 820px;
-    left: 895px;
-	font-size: 0.8em;
-}
-
 
 #weaponsList{
     position:absolute;
     top: 910px;
     left: 665px;
-	font-size: 0.55em;
+	font-size: 0.6em;
 }
 
 #weaponsList2{
     position:absolute;
     top: 910px;
     left: 867px;
-	font-size: 0.55em;
+	font-size: 0.6em;
 }
 
 
@@ -151,7 +154,7 @@ body{
     position:absolute;
     top: 910px;
     left: 930px;
-	font-size: 0.55em;
+	font-size: 0.6em;
 }
 
 
@@ -168,8 +171,8 @@ body{
 #totalWeaponWeight{
     position:absolute;
     top: 1170px;
-    left: 930px;
-	font-size: 0.55em;
+    left: 925px;
+	font-size: 0.65em;
 }
 
 
@@ -198,19 +201,42 @@ body{
 
 #gearList{
     position:absolute;
-    top: 660px;
-    left: 680px;
-    font-size: 0.6em;
-    width: 230px;
+    top: 335px;
+    left: 670px;
+	font-size: 0.6em;
+}
+
+#gearList2{
+    position:absolute;
+    top: 335px;
+    left: 925px;
+	font-size: 0.6em;
+}
+
+
+#totalWeightGear{
+    position:absolute;
+    top: 770px;
+    left: 925px;
+	font-size: 0.6em;
 }
 
 
 #wealth{
     position:absolute;
-    top: 855px;
-    left: 680px;
-    font-size: 0.6em;
-    width: 230px;
+    top: 270px;
+    left: 340px;
+    font-size: 0.65em;
+    width: 250px;
+}
+
+
+
+#coinWeight{
+    position:absolute;
+    top: 352px;
+    left: 570px;
+    font-size: 0.75em;
 }
 
 

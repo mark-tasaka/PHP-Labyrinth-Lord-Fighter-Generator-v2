@@ -134,9 +134,32 @@
         {
             $wealthOption = $_POST["theWealth"];
         
-        }  
+        } 
+        
+        $coinsArray = array();
+        $coinCount = 0;
 
-        $wealth = getWealth($wealthOption);
+        $silverCoins = getSilver($wealthOption);
+        $coinCount += $silverCoins;
+        array_push($coinsArray, $silverCoins);
+        
+        $electrumCoins = getElectrum($wealthOption);
+        $coinCount += $electrumCoins;
+        array_push($coinsArray, $electrumCoins);
+        
+        $goldCoins = getGold($wealthOption);
+        $coinCount += $goldCoins;
+        array_push($coinsArray, $goldCoins);
+        
+        $platnumCoins = getPlatnum($wealthOption);
+        $coinCount += $platnumCoins;
+        array_push($coinsArray, $platnumCoins);
+
+        $coinWeightDecimal = $coinCount * 0.1;
+
+        $coinWeight = ceil($coinWeightDecimal);
+
+        $wealth = getWealth($wealthOption, $coinsArray);
 
         if(isset($_POST['theCustomAbilityScore']) && $_POST['theCustomAbilityScore'] == 1) 
         {        
@@ -231,16 +254,26 @@
         $armourACBonus = getArmour($armour)[1];
         $armourWeight = getArmour($armour)[2];
 
-       $totalAcDefense = $armourACBonus;
+        if(isset($_POST['theCheckBoxShield']) && $_POST['theCheckBoxShield'] == 1) 
+        {
+            $shield = 1;
+        }
+        else
+        {
+            $shield = 0;
+        }
+        
+    
+        $shieldName = getShield($shield)[0];
+        
+        $shieldACBonus = getShield($shield)[1];
+        $shieldWeight = getShield($shield)[2];
 
-       $speed = 30;
+       $totalAcDefense = $armourACBonus + $shieldACBonus;
 
 
-       $criticalDie = criticalDie($level);
+       //$speed = 30;
 
-       $threat = threatRange($level);
-
-       $actionDice = actionDice($level);
 
        $baseArmourClass = 9 - $dexterityMod;
 
@@ -294,10 +327,12 @@
         array_push($weaponWeight, getWeapon($select)[2]);
         $totalWeaponWeight += getWeapon($select)[2];
     }
+
+    $armourAndWeapomWeight = $totalWeaponWeight + $armourWeight + $shieldWeight;
     
-        
         $gearArray = array();
         $gearNames = array();
+        $gearWeight = array();
     
     
 
@@ -306,23 +341,6 @@
     {
         $gearArray = getRandomGear();
 
-        $weaponCount = count($weaponArray);
-
-
-        for($i = 0; $i < $weaponCount; ++$i)
-        {
-
-            if($weaponArray[$i] == "4")
-            {
-                array_push($gearArray, 26);
-            }
-
-            if($weaponArray[$i] == "18")
-            {
-                array_push($gearArray, 27);
-            }
-
-        }
 
     }
     else
@@ -342,6 +360,18 @@
         foreach($gearArray as $select)
         {
             array_push($gearNames, getGear($select)[0]);
+        }
+        
+        foreach($gearArray as $select)
+        {
+            array_push($gearWeight, getGear($select)[1]);
+        }
+        
+        $totalWeightGear = 0;
+
+        foreach($gearArray as $select)
+        {
+            $totalWeightGear += getGear($select)[1];
         }
     
     
@@ -463,6 +493,13 @@
        </span>
 
        
+       <span id="coinWeight">
+       <?php
+           echo $coinWeight;
+           ?>
+       </span>
+
+       
        <span id="level">
            <?php
                 echo $level;
@@ -510,7 +547,6 @@
         
         <span id="speed">
            <?php
-                echo $speed . '\'';
            ?></span>
         
 
@@ -524,7 +560,7 @@
 
         <span id="armourACBonus">
             <?php
-                echo $totalAcDefense;
+                echo $armourACBonus;
             ?>
         </span>
 
@@ -534,27 +570,37 @@
                 echo $armourWeight;
             ?>
         </span>
-        
 
-        <span id="criticalDieTable">
-            <?php
-                echo $criticalDie;
-            ?>
+                      
+       <span id="shieldName">
+           <?php
+
+           if($shield === 1)
+           {
+                echo $shieldName;
+           }
+           ?>
+        </span>
+              
+       <span id="shieldACBonus">
+           <?php
+           if($shield === 1)
+           {
+                echo $shieldACBonus;
+           }
+           ?>
+        </span>
+              
+       <span id="shieldWeight">
+           <?php
+           
+           if($shield === 1)
+           {
+                echo $shieldWeight;
+           }
+           ?>
         </span>
         
-        <span id="threatRange">
-            <?php
-                echo $threat;
-            ?>
-        </span>
-
-
-        
-        <span id="actionDice">
-            <?php
-                echo $actionDice;
-            ?>
-        </span>
 
        
         <span id="weaponsList">
@@ -608,7 +654,7 @@
        
        <span id="totalWeaponWeight">
            <?php
-           echo $totalWeaponWeight;
+           echo $armourAndWeapomWeight;
            ?>
        </span>
 
@@ -616,32 +662,31 @@
 
        <span id="gearList">
            <?php
-
-           $gearCount = count($gearNames);
-           $counter = 1;
-           
            foreach($gearNames as $theGear)
            {
-              echo $theGear;
-
-              if($counter == $gearCount-1)
-              {
-                  echo " & ";
-              }
-              elseif($counter > $gearCount-1)
-              {
-                  echo ".";
-              }
-              else
-              {
-                  echo ", ";
-              }
-
-              ++$counter;
+               echo $theGear;
+               echo "<br/>";
            }
            ?>
        </span>
 
+       
+       <span id="gearList2">
+           <?php
+           foreach($gearWeight as $theGear)
+           {
+               echo $theGear;
+               echo "<br/>";
+           }
+           ?>
+       </span>
+
+
+       <span id="totalWeightGear">
+           <?php
+                echo $totalWeightGear;
+           ?>
+       </span>
 
        <span id="abilityScoreGeneration">
             <?php
