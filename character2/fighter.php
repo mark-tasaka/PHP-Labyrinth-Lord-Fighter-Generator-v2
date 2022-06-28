@@ -36,6 +36,7 @@
     include 'php/nameSelect.php';
     include 'php/gender.php';
     include 'php/languages.php';
+    include 'php/movementRate.php';
     
 
 
@@ -373,6 +374,20 @@
         {
             $totalWeightGear += getGear($select)[1];
         }
+
+        $totalWeightCarried = $armourAndWeapomWeight + $totalWeightGear + $coinWeight;
+
+        $turnMovement = turnMovement($totalWeightCarried);
+        $encounterMovement = encounterMovement($totalWeightCarried);
+        $runningMovement = runningMovement($totalWeightCarried);
+
+        $saveBreath = saveBreathAttack($level);
+        $savePoisonDeath = savePoisonDeath($level);
+        $savePetrify = savePetrify($level);
+        $saveWands = saveWands($level);
+        $saveWands -= $wisdomMod;
+        $saveSpells = saveSpells($level);
+        $saveSpells -= $wisdomMod;
     
     
     ?>
@@ -681,6 +696,13 @@
            ?>
        </span>
 
+       <span id="totalWeightCarried">
+           <?php
+                echo $totalWeightCarried . " lbs.";
+           ?>
+       </span>
+
+
 
        <span id="totalWeightGear">
            <?php
@@ -688,12 +710,63 @@
            ?>
        </span>
 
+        <span id="turnMovement">
+           <?php
+                echo $turnMovement;
+           ?>
+       </span>
+       
+       <span id="encounterMovement">
+           <?php
+                echo $encounterMovement;
+           ?>
+       </span>
+
+       <span id="runningMovement">
+           <?php
+                echo $runningMovement;
+           ?>
+       </span>
+
+
+
        <span id="abilityScoreGeneration">
             <?php
            echo $generationMessage . '; ' . $nameGenMessage;
            ?>
        </span>
+       
+       <span id="saveBreath">
+           <?php
+                echo $saveBreath;
+           ?>
+       </span>
 
+       <span id="savePoisonDeath">
+           <?php
+                echo $savePoisonDeath;
+           ?>
+       </span>
+
+       <span id="savePetrify">
+           <?php
+                echo $savePetrify;
+           ?>
+       </span>
+
+        <span id="saveWands">
+            <?php
+                echo $saveWands;
+            ?>
+        </span>
+
+        <span id="saveSpells">
+            <?php
+                echo $saveSpells;
+            ?>
+        </span>
+        
+       
 
        
 	</section>

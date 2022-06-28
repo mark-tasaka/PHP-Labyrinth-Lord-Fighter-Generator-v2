@@ -1,56 +1,78 @@
 <?php
 
-function moveRate ($totalWeight, $race)
+function turnMovement($input)
 {
-    $move = "12 (0-75 lb.)";
+    $turnMove = "-";
     
-    if($race == "Dwarf" || $race == "Halfling")
+    if($input <= 40)
     {
-        
-        if($totalWeight >= 76 && $totalWeight <=100)
-        {
-            $move = "6 (76-100 lb.)";
-        }
-        else if($totalWeight >= 101 && $totalWeight <=150)
-        {
-            $move = "3 (101-150 lb.)";
-        }
-        else if($totalWeight >=151)
-        {
-            $move = "3 (151-300 lb.)";
-        }
-        else
-        {
-            $move = "9 (0-75 lb.)";
-        }
-        
+        $turnMove = "120'";
     }
-    else
+    else if($input > 40 && $input <= 60)
     {
-        
-        if($totalWeight >= 76 && $totalWeight <=100)
-        {
-            $move = "9 (76-100 lb.)";
-        }
-        else if($totalWeight >= 101 && $totalWeight <=150)
-        {
-            $move = "6 (101-150 lb.)";
-        }
-        else if($totalWeight >=151)
-        {
-            $move = "3 (151-300 lb.)";
-        }
-        else
-        {
-           $move = "12 (0-75 lb.)";
-        }
-        
-        
+        $turnMove = "90'";
+    }
+    else if($input > 60 && $input <= 80)
+    {
+        $turnMove = "60'";
+    }
+    else if($input > 80)
+    {
+        $turnMove = "30'";
     }
     
-    return $move;
-    
+    return $turnMove;
 }
+
+function encounterMovement($input)
+{
+    $turnMove = "-";
+    
+    if($input <= 40)
+    {
+        $turnMove = "40'/round";
+    }
+    else if($input > 40 && $input <= 60)
+    {
+        $turnMove = "30'/round";
+    }
+    else if($input > 60 && $input <= 80)
+    {
+        $turnMove = "20'/round";
+    }
+    else if($input > 80)
+    {
+        $turnMove = "10'/round";
+    }
+    
+    return $turnMove;
+}
+
+
+function runningMovement($input)
+{
+    $turnMove = "-";
+    
+    if($input <= 40)
+    {
+        $turnMove = "120'/round";
+    }
+    else if($input > 40 && $input <= 60)
+    {
+        $turnMove = "90'/round";
+    }
+    else if($input > 60 && $input <= 80)
+    {
+        $turnMove = "60'/round";
+    }
+    else if($input > 80)
+    {
+        $turnMove = "30'/round";
+    }
+    
+    return $turnMove;
+}
+
 
 
 ?>

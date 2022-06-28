@@ -161,7 +161,7 @@ body{
 
 #weaponNotes{
     position:absolute;
-    top: 1150px;
+    top: 1140px;
     left: 665px;
 	font-size: 0.5em;
 }
@@ -239,6 +239,34 @@ body{
     font-size: 0.75em;
 }
 
+#totalWeightCarried
+{
+    position:absolute;
+    top: 427px;
+    left: 436px;
+    font-size: 0.6em;
+}
+
+#turnMovement{
+    position:absolute;
+    top: 452px;
+    left: 436px;
+    font-size: 0.6em;
+}
+
+#encounterMovement{
+    position:absolute;
+    top: 427px;
+    left: 560px;
+    font-size: 0.6em;
+}
+
+#runningMovement{
+    position:absolute;
+    top: 453px;
+    left: 560px;
+    font-size: 0.6em;
+}
 
 #abilityScoreGeneration{
     position:absolute;
@@ -377,6 +405,40 @@ body{
 	font-size: 1.5em;
 }
 
+#saveBreath{
+    position:absolute;
+    top: 524px;
+    left: 373px;
+	font-size: 1.3em;
+}
+
+#savePoisonDeath{
+    position:absolute;
+    top: 574px;
+    left: 373px;
+	font-size: 1.3em;
+}
+
+#savePetrify{
+    position:absolute;
+    top: 624px;
+    left: 373px;
+	font-size: 1.3em;
+}
+
+#saveWands{
+    position:absolute;
+    top: 674px;
+    left: 373px;
+	font-size: 1.3em;
+}
+
+#saveSpells{
+    position:absolute;
+    top: 724px;
+    left: 373px;
+	font-size: 1.3em;
+}
 
 #speed{
     position:absolute;
