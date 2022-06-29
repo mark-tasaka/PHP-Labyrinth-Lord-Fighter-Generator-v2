@@ -4,6 +4,17 @@ The Labyrinth Lord Fighter Character Generator Version 2 is the second iteration
 
 ----------
 
+A live version of the Labyrinth Lord Fighter Character Generator Version 2 is available at:
+
+https://www.oldschooladventures.org/ll/classes/fighter/
+
+--------
+
+
+Update 1.05: 2022-06-29
+
+Updates to fighter.php, fighter.css, abilityScoreGen.php, classDetails.php, gear.php, wealth.php and weapons.php.  As well, a link to the live version of the Fighter Character Generator Version 2 has been added.
+
 
 Update 1.04: 2022-06-28
 
