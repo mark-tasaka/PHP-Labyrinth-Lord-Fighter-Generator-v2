@@ -79,6 +79,15 @@ function roll2D6Plus6()
 }
 
 
+function roll1D6Plus12()
+{
+    
+    $die1 = rand(1, 6);
+
+    return $die1 + 12;
+}
+
+
 
 function rollAbilityScores($input)
 {
@@ -105,13 +114,13 @@ function rollAbilityScores($input)
     //Roll 5d6, use the three highest
     if($input == 4)
     {
-        $abilityScores = rollD5D6D7();
+        $abilityScores = roll2D6Plus6();
     }
     
     //Roll 2d6 + 6
     if($input == 5)
     {
-        $abilityScores = roll2D6Plus6();
+        $abilityScores = roll1D6Plus12();
     }
 
 
@@ -157,28 +166,28 @@ function generationMesssage ($abilityScore)
     
     if($abilityScore == 1)
     {
-        $message = "Ability Score Generation: 3d6";
+        $message = "Ability Score Generation: 3d6;";
     }
     
     if($abilityScore == 2)
     {
-        $message = "Ability Score Generation: 4d6, drop the lowest.";
+        $message = "Ability Score Generation: 4d6, drop the lowest;";
     }
     
     if($abilityScore == 3)
     {
-        $message = "Ability Score Generation: 5d6, use the three highest rolls.";
+        $message = "Ability Score Generation: 5d6, use the three highest rolls;";
     }
     
     if($abilityScore == 4)
     {
-        $message = "Ability Score Generation: 1d5 + 1d6 + 1d7";
+        $message = "Ability Score Generation: 2d6 + 6;";
     }
     
     
     if($abilityScore == 5)
     {
-        $message = "Ability Score Generation: 2d6 + 6";
+        $message = "Ability Score Generation: 1d6 + 12;";
     }
     
     return $message;

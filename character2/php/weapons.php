@@ -127,7 +127,7 @@ function weaponNotes($value)
         //shuffle $weaponsArray
         shuffle($weaponsArray); 
     
-        $numberOfWeapons = rand (4, 8);
+        $numberOfWeapons = rand (2, 8);
     
         $weaponsHas = array();
     

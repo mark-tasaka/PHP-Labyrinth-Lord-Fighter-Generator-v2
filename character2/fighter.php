@@ -43,6 +43,7 @@
         if(isset($_POST["theCharacterName"]))
         {
             $characterName = $_POST["theCharacterName"];
+            
     
         }
 
@@ -201,8 +202,7 @@
                 $charisma = intval($charismaString);
             }  
 
-            $nameGenMessage = "Custom Name";
-            $generationMessage = "Custom Ability Scores";
+            $generationMessage = "Custom Ability Scores;";
 
         }
         else
@@ -231,10 +231,18 @@
             $charisma = $abilityScoreArray[5];
             
             
-            $nameGenMessage = getNameDescript($givenName, $surname);
             $generationMessage = generationMesssage ($abilityScoreGen);
 
         } 
+
+        if($surname == 200)
+        {
+            $nameGenMessage = "Custom Name";
+        }
+        else
+        {
+            $nameGenMessage = getNameDescript($givenName, $surname);
+        }
 
         
         $strengthMod = getAbilityModifier($strength);
@@ -388,6 +396,56 @@
         $saveWands -= $wisdomMod;
         $saveSpells = saveSpells($level);
         $saveSpells -= $wisdomMod;
+
+        $primeReq = primeReq($strength);
+        $secondAttack = secondAttack($level);
+
+        $strengthDescription = strengthModifierDescription($strength);
+        $dexterityDescription = dexterityModifierDescription($dexterity);
+        $constitutionDescription = constitutionModifierDescription($constitution);
+        $intelligenceDescription = intelligenceModifierDescription($intelligence);
+        $wisdomDescription = wisdomModifierDescription($wisdom);
+        $charismaDescription = charismaModifierDescription($charisma);
+
+        $meleeHitAC0 = getThaco($level, $strengthMod);
+        $meleeHitAC1 = $meleeHitAC0  - 1;
+        $meleeHitAC1 = getThacoCheck($meleeHitAC1);
+        $meleeHitAC2 = $meleeHitAC0  - 2;
+        $meleeHitAC2 = getThacoCheck($meleeHitAC2);
+        $meleeHitAC3 = $meleeHitAC0  - 3;
+        $meleeHitAC3 = getThacoCheck($meleeHitAC3);
+        $meleeHitAC4 = $meleeHitAC0  - 4;
+        $meleeHitAC4 = getThacoCheck($meleeHitAC4);
+        $meleeHitAC5 = $meleeHitAC0  - 5;
+        $meleeHitAC5 = getThacoCheck($meleeHitAC5);
+        $meleeHitAC6 = $meleeHitAC0  - 6;
+        $meleeHitAC6 = getThacoCheck($meleeHitAC6);
+        $meleeHitAC7 = $meleeHitAC0  - 7;
+        $meleeHitAC7 = getThacoCheck($meleeHitAC7);
+        $meleeHitAC8 = $meleeHitAC0  - 8;
+        $meleeHitAC8 = getThacoCheck($meleeHitAC8);
+        $meleeHitAC9 = $meleeHitAC0  - 9;
+        $meleeHitAC9 = getThacoCheck($meleeHitAC9);
+
+        $missileHitAC0 = getThaco($level, $dexterityMod);
+        $missileHitAC1 = $missileHitAC0  - 1;
+        $missileHitAC1 = getThacoCheck($missileHitAC1);
+        $missileHitAC2 = $missileHitAC0  - 2;
+        $missileHitAC2 = getThacoCheck($missileHitAC2);
+        $missileHitAC3 = $missileHitAC0  - 3;
+        $missileHitAC3 = getThacoCheck($missileHitAC3);
+        $missileHitAC4 = $missileHitAC0  - 4;
+        $missileHitAC4 = getThacoCheck($missileHitAC4);
+        $missileHitAC5 = $missileHitAC0  - 5;
+        $missileHitAC5 = getThacoCheck($missileHitAC5);
+        $missileHitAC6 = $missileHitAC0  - 6;
+        $missileHitAC6 = getThacoCheck($missileHitAC6);
+        $missileHitAC7 = $missileHitAC0  - 7;
+        $missileHitAC7 = getThacoCheck($missileHitAC7);
+        $missileHitAC8 = $missileHitAC0  - 8;
+        $missileHitAC8 = getThacoCheck($missileHitAC8);
+        $missileHitAC9 = $missileHitAC0  - 9;
+        $missileHitAC9 = getThacoCheck($missileHitAC9);
     
     
     ?>
@@ -408,6 +466,7 @@
         
         <span id="strengthMod">
         <?php
+            echo $strengthDescription;
             ?>
         </span>
 
@@ -419,6 +478,7 @@
 
           <span id="dexterityMod">
         <?php
+            echo $dexterityDescription;
             ?>
         </span>
 
@@ -431,6 +491,7 @@
 
           <span id="constitutionMod">
         <?php
+            echo $constitutionDescription;
             ?>
         </span>
         
@@ -442,6 +503,7 @@
 
          <span id="intelligenceMod">
         <?php
+            echo $intelligenceDescription;
             ?>
         </span>
 
@@ -453,6 +515,7 @@
 
          <span id="wisdomMod">
         <?php
+            echo $wisdomDescription;
             ?>
         </span>
 
@@ -465,8 +528,148 @@
 
          <span id="charismaMod">
         <?php
+            echo $charismaDescription;
             ?>
         </span>
+        
+        <span id="meleeHitAC0">
+        <?php
+            echo $meleeHitAC0;
+            ?>
+        </span>
+        
+        <span id="meleeHitAC1">
+        <?php
+            echo $meleeHitAC1;
+            ?>
+        </span>
+
+        
+        <span id="meleeHitAC2">
+        <?php
+            echo $meleeHitAC2;
+            ?>
+        </span>
+
+        
+        <span id="meleeHitAC3">
+        <?php
+            echo $meleeHitAC3;
+            ?>
+        </span>
+
+        
+        <span id="meleeHitAC4">
+        <?php
+            echo $meleeHitAC4;
+            ?>
+        </span>
+
+        
+        <span id="meleeHitAC5">
+        <?php
+            echo $meleeHitAC5;
+            ?>
+        </span>
+
+        
+        <span id="meleeHitAC6">
+        <?php
+            echo $meleeHitAC6;
+            ?>
+        </span>
+
+        
+        <span id="meleeHitAC7">
+        <?php
+            echo $meleeHitAC7;
+            ?>
+        </span>
+
+        
+        <span id="meleeHitAC8">
+        <?php
+            echo $meleeHitAC8;
+            ?>
+        </span>
+
+        
+        <span id="meleeHitAC9">
+        <?php
+            echo $meleeHitAC9;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC0">
+        <?php
+            echo $missileHitAC0;
+            ?>
+        </span>
+        
+        <span id="missileHitAC1">
+        <?php
+            echo $missileHitAC1;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC2">
+        <?php
+            echo $missileHitAC2;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC3">
+        <?php
+            echo $missileHitAC3;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC4">
+        <?php
+            echo $missileHitAC4;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC5">
+        <?php
+            echo $missileHitAC5;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC6">
+        <?php
+            echo $missileHitAC6;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC7">
+        <?php
+            echo $missileHitAC7;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC8">
+        <?php
+            echo $missileHitAC8;
+            ?>
+        </span>
+
+        
+        <span id="missileHitAC9">
+        <?php
+            echo $missileHitAC9;
+            ?>
+        </span>
+
+
 
        
        <span id="gender">
@@ -732,7 +935,7 @@
 
        <span id="abilityScoreGeneration">
             <?php
-           echo $generationMessage . '; ' . $nameGenMessage;
+           echo $generationMessage . ' ' . $nameGenMessage;
            ?>
        </span>
        
@@ -765,6 +968,16 @@
                 echo $saveSpells;
             ?>
         </span>
+
+        
+        <span id="classAbilities">
+            <?php
+                echo $primeReq;
+                echo $secondAttack;
+            ?>
+        </span>
+
+        
         
        
 

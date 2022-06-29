@@ -324,9 +324,10 @@ body{
 
 #strengthMod{
     position:absolute;
-    top: 310px;
-    left: 580px;
-	font-size: 1.5em;
+    top: 510px;
+    left: 160px;
+	font-size: 0.55em;
+    width: 155px;
 }
 
 
@@ -339,9 +340,10 @@ body{
 
 #dexterityMod{
     position:absolute;
-    top: 358px;
-    left: 580px;
-	font-size: 1.5em;
+    top: 555px;
+    left: 160px;
+	font-size: 0.55em;
+    width: 155px;
 }
 
 
@@ -355,9 +357,10 @@ body{
 
 #constitutionMod{
     position:absolute;
-    top: 407px;
-    left: 580px;
-	font-size: 1.5em;
+    top: 602px;
+    left: 160px;
+	font-size: 0.55em;
+    width: 160px;
 }
 
 
@@ -370,9 +373,10 @@ body{
 
 #intelligenceMod{
     position:absolute;
-    top: 455px;
-    left: 580px;
-	font-size: 1.5em;
+    top: 648px;
+    left: 160px;
+	font-size: 0.55em;
+    width: 155px;
 }
 
 
@@ -385,9 +389,10 @@ body{
 
 #wisdomMod{
     position:absolute;
-    top: 502px;
-    left: 580px;
-	font-size: 1.5em;
+    top: 695px;
+    left: 160px;
+	font-size: 0.55em;
+    width: 155px;
 }
 
 #charisma{
@@ -400,10 +405,156 @@ body{
 
 #charismaMod{
     position:absolute;
-    top: 550px;
-    left: 580px;
-	font-size: 1.5em;
+    top: 730px;
+    left: 160px;
+	font-size: 0.55em;
+    width: 155px;
 }
+
+#meleeHitAC0{
+    position:absolute;
+    top: 840px;
+    left: 130px;
+	font-size: 1em;
+}
+
+#meleeHitAC1{
+    position:absolute;
+    top: 840px;
+    left: 178px;
+	font-size: 1em;
+}
+
+#meleeHitAC2{
+    position:absolute;
+    top: 840px;
+    left: 226px;
+	font-size: 1em;
+}
+
+#meleeHitAC3{
+    position:absolute;
+    top: 840px;
+    left: 278px;
+	font-size: 1em;
+}
+
+#meleeHitAC4{
+    position:absolute;
+    top: 840px;
+    left: 328px;
+	font-size: 1em;
+}
+
+#meleeHitAC5{
+    position:absolute;
+    top: 840px;
+    left: 380px;
+	font-size: 1em;
+}
+
+#meleeHitAC6{
+    position:absolute;
+    top: 840px;
+    left: 430px;
+	font-size: 1em;
+}
+
+#meleeHitAC7{
+    position:absolute;
+    top: 840px;
+    left: 482px;
+	font-size: 1em;
+}
+
+#meleeHitAC8{
+    position:absolute;
+    top: 840px;
+    left: 534px;
+	font-size: 1em;
+}
+
+#meleeHitAC9{
+    position:absolute;
+    top: 840px;
+    left: 586px;
+	font-size: 1em;
+}
+
+
+
+#missileHitAC0{
+    position:absolute;
+    top: 876px;
+    left: 130px;
+	font-size: 1em;
+}
+
+#missileHitAC1{
+    position:absolute;
+    top: 876px;
+    left: 178px;
+	font-size: 1em;
+}
+
+#missileHitAC2{
+    position:absolute;
+    top: 876px;
+    left: 226px;
+	font-size: 1em;
+}
+
+#missileHitAC3{
+    position:absolute;
+    top: 876px;
+    left: 278px;
+	font-size: 1em;
+}
+
+#missileHitAC4{
+    position:absolute;
+    top: 876px;
+    left: 328px;
+	font-size: 1em;
+}
+
+#missileHitAC5{
+    position:absolute;
+    top: 876px;
+    left: 380px;
+	font-size: 1em;
+}
+
+#missileHitAC6{
+    position:absolute;
+    top: 876px;
+    left: 430px;
+	font-size: 1em;
+}
+
+#missileHitAC7{
+    position:absolute;
+    top: 876px;
+    left: 482px;
+	font-size: 1em;
+}
+
+#missileHitAC8{
+    position:absolute;
+    top: 876px;
+    left: 534px;
+	font-size: 1em;
+}
+
+#missileHitAC9{
+    position:absolute;
+    top: 876px;
+    left: 586px;
+	font-size: 1em;
+}
+
+
+
 
 #saveBreath{
     position:absolute;
@@ -439,6 +590,18 @@ body{
     left: 373px;
 	font-size: 1.3em;
 }
+
+#classAbilities{
+    position:absolute;
+    top: 970px;
+    left: 45px;
+	font-size: 0.7em;
+}
+
+
+
+
+
 
 #speed{
     position:absolute;

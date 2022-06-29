@@ -107,19 +107,19 @@ function getWealth($input, $arrayInput)
     }
     else if($input == 2)
     {
-        return $arrayInput[0] . ' silver pieces, ' .  $arrayInput[1] . ' electrum pieces, & ' .  $arrayInput[2] . ' gold pieces';
+        return $arrayInput[0] . ' sp, ' .  $arrayInput[1] . ' ep, & ' .  $arrayInput[2] . ' gp';
     }
     else if($input == 3)
     {
-        return $arrayInput[0] . ' silver pieces, ' .  $arrayInput[1] . ' electrum pieces, & ' .  $arrayInput[2] . ' gold pieces';
+        return $arrayInput[0] . ' sp, ' .  $arrayInput[1] . ' ep, & ' .  $arrayInput[2] . ' gp';
     }
     else if($input == 4)
     {
-        return $arrayInput[1] . ' electrum pieces, ' .  $arrayInput[2] . ' gold pieces, & ' .  $arrayInput[3] . ' platnum pieces';
+        return $arrayInput[1] . ' ep, ' .  $arrayInput[2] . ' gp, & ' .  $arrayInput[3] . ' pp';
     }
     else
     {
-        return $arrayInput[2] . ' gold pieces, & ' .  $arrayInput[3] . ' platnum pieces';
+        return $arrayInput[2] . ' gp, & ' .  $arrayInput[3] . ' pp';
 
     }
 
